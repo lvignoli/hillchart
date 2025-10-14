@@ -164,8 +164,8 @@
                     .attr("stroke-dasharray", "5,5");
 
                 const labels = [
-                    { x: xMid - xMid / 2, text: "RESEARCHING" },
-                    { x: xMid + xMid / 2, text: "DEVELOPING" },
+                    { x: xMid - xMid / 2, text: "FIGURING THINGS OUT" },
+                    { x: xMid + xMid / 2, text: "MAKING IT HAPPEN" },
                 ];
 
                 labels.forEach(({ x, text }) => {
@@ -241,13 +241,14 @@
                     .attr("class", "task-point")
                     .attr("fill", (d) => d.color);
 
+                const ITEM_DISPLAY_LENGTH = 30;
                 taskGroup
                     .append("text")
                     .attr("class", "task-label")
                     .attr("x", (d) => (width / 100 + 5) * (d.x > xMid ? -1 : 1)) // Adjust x position based on the point's position relative to xMid
                     .attr("y", 5) // Center the text vertically
                     .attr("text-anchor", (d) => (d.x > xMid ? "end" : "start")) // Align text to the end or start based on the point's position
-                    .text((d) => (d.label.length > 12 ? d.label.slice(0, 12) + "..." : d.label));
+                    .text((d) => (d.label.length > ITEM_DISPLAY_LENGTH ? d.label.slice(0, ITEM_DISPLAY_LENGTH) + "..." : d.label));
                 taskPoints.exit().remove();
             }
 
