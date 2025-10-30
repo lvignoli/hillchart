@@ -105,6 +105,8 @@
             const xMax = width - 20;
             const xMid = (xMin + xMax) / 2;
 
+            const ITEM_DISPLAY_LENGTH = 30;
+
             // const amplitude = 150; // Amplitude: the peak deviation of the function from its central value
             // const period = 1200; // Period: the length of one complete cycle of the sine wave
             // const phaseShift = 300; // Phase Shift: horizontal shift of the sine wave
@@ -241,7 +243,7 @@
                     .attr("class", "task-point")
                     .attr("fill", (d) => d.color);
 
-                const ITEM_DISPLAY_LENGTH = 30;
+
                 taskGroup
                     .append("text")
                     .attr("class", "task-label")
@@ -345,7 +347,7 @@
             // Update the task display on the chart
             function updateTaskDisplay(task) {
                 const taskElement = svg.selectAll(".task").filter((d) => d.id === task.id);
-                taskElement.select("text").text((d) => (d.label.length > 12 ? d.label.slice(0, 12) + "..." : d.label));
+                taskElement.select("text").text((d) => (d.label.length > ITEM_DISPLAY_LENGTH ? d.label.slice(0, ITEM_DISPLAY_LENGTH) + "..." : d.label));
                 taskElement.select("circle").attr("fill", (d) => d.color);
             }
 
