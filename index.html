@@ -120,7 +120,20 @@
             // Define the function using the parameters
             const hillFn = (x) => amplitude * Math.sin(B * (x + phaseShift)) + verticalShift;
 
-            const colorPalette = ["#3498db", "#e74c3c", "#2ecc71", "#9b59b6", "#f1c40f"];
+            // Tableau10 colorPalette, from Vega.
+            // See https://github.com/vega/vega/blob/21677ce895460ca56b7173d64f1883f29cf4bcc4/packages/vega-scale/src/palettes.js.
+            const colorPalette = [
+              "#4c78a8",
+              "#f58518",
+              "#e45756",
+              "#72b7b2",
+              "#54a24b",
+              "#eeca3b",
+              "#b279a2",
+              "#ff9da6",
+              "#9d755d",
+              "#bab0ac",
+            ]
 
             const chartTitleElement = document.getElementById("chartTitle");
             const taskList = document.getElementById("taskList");
