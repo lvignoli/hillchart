@@ -259,7 +259,7 @@
                 taskGroup
                     .append("text")
                     .attr("class", "task-label")
-                    .attr("x", (d) => (width / 100 + 5) * (d.x > xMid ? -1 : 1)) // Adjust x position based on the point's position relative to xMid
+                    .attr("x", (d) => (width / 100 + 5)) // Adjust x position based on the point's position relative to xMid
                     .attr("y", 5) // Center the text vertically
                     .attr("text-anchor", "start") // Align text to the start, whatever the point's position.
                     // .attr("text-anchor", (d) => (d.x > xMid ? "end" : "start")) // Align text to the end or start based on the point's position
@@ -377,8 +377,9 @@
                 d3.select(this).attr("transform", `translate(${d.x},${d.y})`);
                 d3.select(this)
                     .select("text")
-                    .attr("text-anchor", (d) => (d.x > xMid ? "end" : "start")) // Align text to the end or start based on the point's position
-                    .attr("x", (d) => (width / 100 + 5) * (d.x > xMid ? -1 : 1)); // Adjust x position based on the point's position relative to xMid
+                    .attr("text-anchor", "start")
+                    // .attr("text-anchor", (d) => (d.x > xMid ? "end" : "start")) // Align text to the end or start based on the point's position
+                    .attr("x", (d) => (width / 100 + 5)); // Adjust x position based on the point's position relative to xMid
             }
 
             function dragEnded(event, d) {
