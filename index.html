@@ -261,7 +261,8 @@
                     .attr("class", "task-label")
                     .attr("x", (d) => (width / 100 + 5) * (d.x > xMid ? -1 : 1)) // Adjust x position based on the point's position relative to xMid
                     .attr("y", 5) // Center the text vertically
-                    .attr("text-anchor", (d) => (d.x > xMid ? "end" : "start")) // Align text to the end or start based on the point's position
+                    .attr("text-anchor", "start") // Align text to the start, whatever the point's position.
+                    // .attr("text-anchor", (d) => (d.x > xMid ? "end" : "start")) // Align text to the end or start based on the point's position
                     .text((d) => (d.label.length > ITEM_DISPLAY_LENGTH ? d.label.slice(0, ITEM_DISPLAY_LENGTH) + "..." : d.label));
                 taskPoints.exit().remove();
             }
